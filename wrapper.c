@@ -45,6 +45,7 @@ int threadCreate(void * functionCall, int threadParam)
 	/* Creates a thread running threadFunc */
 	/* Should return 1 on success and 0 on fail */
   int result = pthread_create(&thread, NULL, functionCall, (void *)&threadParam);
+  pthread_join(thread, NULL);
 
   if (result != 0) {
     return 0;
